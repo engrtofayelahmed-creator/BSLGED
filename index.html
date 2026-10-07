@@ -1,0 +1,4268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>B-STRONG | LGED Project Portal</title>
+
+<meta name="description"
+content="B-STRONG Project Management Information System - Local Government Engineering Department">
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root{
+    --green:#006a4e;
+    --dark-green:#003d2e;
+    --light-green:#e9f6f1;
+    --gold:#f4c430;
+    --blue:#145da0;
+    --red:#c62828;
+    --orange:#ef8b17;
+    --dark:#172b26;
+    --gray:#6b7280;
+    --light:#f5f8f7;
+    --white:#ffffff;
+    --border:#e5e7eb;
+    --shadow:0 8px 25px rgba(0,0,0,.08);
+    --radius:12px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+    "Segoe UI",
+    Arial,
+    Helvetica,
+    sans-serif;
+    background:var(--light);
+    color:#263238;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+select,
+input{
+    font-family:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1250px;
+    margin:auto;
+}
+
+.section{
+    padding:70px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title .small-title{
+    color:var(--green);
+    font-size:14px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.section-title h2{
+    color:var(--dark);
+    font-size:34px;
+    margin:7px 0;
+}
+
+.section-title p{
+    color:var(--gray);
+    max-width:750px;
+    margin:auto;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+    background:var(--dark-green);
+    color:#fff;
+    font-size:13px;
+}
+
+.topbar-inner{
+    min-height:38px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.topbar-right{
+    display:flex;
+    gap:20px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+}
+
+.header-inner{
+    min-height:88px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo-box{
+    width:62px;
+    height:62px;
+    border-radius:50%;
+    background:var(--green);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+    font-size:17px;
+    border:4px solid #d9eee7;
+}
+
+.brand h1{
+    color:var(--green);
+    font-size:26px;
+    line-height:1.1;
+}
+
+.brand p{
+    color:#555;
+    font-size:12px;
+}
+
+.partner-logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.partner-logo .wb{
+    width:75px;
+    height:55px;
+    border:2px solid #ddd;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#1467a8;
+    font-size:12px;
+    font-weight:bold;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav{
+    background:var(--green);
+}
+
+.nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.nav-menu{
+    display:flex;
+    list-style:none;
+}
+
+.nav-menu li a{
+    display:block;
+    color:#fff;
+    padding:15px 14px;
+    font-size:14px;
+    transition:.25s;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active{
+    background:#00855f;
+}
+
+.login-btn{
+    background:var(--gold);
+    color:#222 !important;
+    padding:9px 18px !important;
+    border-radius:5px;
+    font-weight:700;
+}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:0;
+    color:#fff;
+    font-size:25px;
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:520px;
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,61,46,.94),
+        rgba(0,106,78,.75),
+        rgba(0,61,46,.45)
+    ),
+    linear-gradient(
+        135deg,
+        #1c7c5e,
+        #063f31
+    );
+
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:70px solid rgba(255,255,255,.05);
+    border-radius:50%;
+    right:-180px;
+    top:-150px;
+}
+
+.hero-content{
+    color:white;
+    max-width:800px;
+    position:relative;
+    z-index:2;
+}
+
+.hero-label{
+    display:inline-block;
+    padding:7px 15px;
+    border-radius:30px;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.3);
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.hero h2{
+    font-size:52px;
+    line-height:1.1;
+    margin-bottom:18px;
+}
+
+.hero h2 span{
+    color:var(--gold);
+}
+
+.hero p{
+    font-size:18px;
+    max-width:700px;
+    opacity:.95;
+}
+
+.hero-buttons{
+    margin-top:28px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 23px;
+    border-radius:6px;
+    font-weight:700;
+    transition:.25s;
+    cursor:pointer;
+    border:0;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:#222;
+}
+
+.btn-primary:hover{
+    background:#fff;
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.7);
+    color:white;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:var(--green);
+}
+
+
+/* =========================================================
+   QUICK STATS
+========================================================= */
+
+.stats{
+    margin-top:-55px;
+    position:relative;
+    z-index:10;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+}
+
+.stat-card{
+    background:white;
+    padding:24px 15px;
+    text-align:center;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    border-bottom:4px solid var(--green);
+}
+
+.stat-icon{
+    font-size:25px;
+}
+
+.stat-card h3{
+    font-size:30px;
+    color:var(--green);
+    margin-top:5px;
+}
+
+.stat-card p{
+    color:var(--gray);
+    font-size:13px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:45px;
+    align-items:center;
+}
+
+.about-visual{
+    min-height:360px;
+    border-radius:18px;
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,106,78,.94),
+        rgba(0,61,46,.94)
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.about-visual .big-text{
+    text-align:center;
+}
+
+.about-visual .big-text strong{
+    display:block;
+    font-size:70px;
+    color:var(--gold);
+}
+
+.about-visual .big-text span{
+    font-size:18px;
+}
+
+.about-content h2{
+    font-size:34px;
+    color:var(--dark);
+    margin-bottom:15px;
+}
+
+.about-content p{
+    color:#5d6663;
+    margin-bottom:15px;
+}
+
+.check-list{
+    list-style:none;
+    margin-top:20px;
+}
+
+.check-list li{
+    margin:9px 0;
+}
+
+.check-list li:before{
+    content:"✓";
+    color:var(--green);
+    font-weight:bold;
+    margin-right:10px;
+}
+
+
+/* =========================================================
+   MONITORING SEARCH
+========================================================= */
+
+.monitor-section{
+    background:#edf7f3;
+}
+
+.monitor-box{
+    background:#fff;
+    padding:30px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+
+.location-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.form-control label{
+    display:block;
+    font-weight:700;
+    font-size:13px;
+    margin-bottom:6px;
+    color:#374151;
+}
+
+.form-control select,
+.form-control input{
+    width:100%;
+    height:45px;
+    border:1px solid #d5d9dd;
+    border-radius:6px;
+    padding:0 12px;
+    background:white;
+    outline:none;
+}
+
+.form-control select:focus,
+.form-control input:focus{
+    border-color:var(--green);
+}
+
+.monitor-actions{
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.btn-green{
+    background:var(--green);
+    color:#fff;
+}
+
+.btn-green:hover{
+    background:#004d3a;
+}
+
+.btn-gray{
+    background:#eef0f2;
+    color:#333;
+}
+
+.search-result{
+    display:none;
+    margin-top:25px;
+    padding:20px;
+    background:#f0faf6;
+    border-left:5px solid var(--green);
+    border-radius:6px;
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:25px;
+}
+
+.dashboard-card{
+    background:#fff;
+    padding:25px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+
+.dashboard-card h3{
+    color:var(--dark);
+    margin-bottom:20px;
+}
+
+.progress-row{
+    margin-bottom:20px;
+}
+
+.progress-head{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    margin-bottom:6px;
+}
+
+.progress{
+    height:11px;
+    background:#e9ecef;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    background:var(--green);
+    border-radius:20px;
+}
+
+.bar-chart{
+    height:250px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-around;
+    gap:15px;
+    padding:10px 5px 30px;
+    border-bottom:1px solid #ddd;
+}
+
+.bar{
+    width:42px;
+    background:var(--green);
+    border-radius:5px 5px 0 0;
+    position:relative;
+}
+
+.bar span{
+    position:absolute;
+    bottom:-25px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:11px;
+    color:#666;
+    white-space:nowrap;
+}
+
+
+/* =========================================================
+   PACKAGE TABLE
+========================================================= */
+
+.table-container{
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+}
+
+.table-toolbar{
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.table-toolbar input{
+    min-width:280px;
+    height:42px;
+    border:1px solid #ddd;
+    border-radius:5px;
+    padding:0 12px;
+}
+
+.table-scroll{
+    overflow-x:auto;
+}
+
+.package-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:900px;
+}
+
+.package-table th{
+    background:var(--green);
+    color:white;
+    padding:14px 12px;
+    font-size:13px;
+    text-align:left;
+}
+
+.package-table td{
+    padding:13px 12px;
+    border-bottom:1px solid #eee;
+    font-size:13px;
+}
+
+.package-table tr:hover{
+    background:#f7faf9;
+}
+
+.badge{
+    display:inline-block;
+    padding:4px 9px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:700;
+}
+
+.badge-ongoing{
+    background:#fff4d6;
+    color:#8a6100;
+}
+
+.badge-completed{
+    background:#dff5e8;
+    color:#12663b;
+}
+
+.badge-planned{
+    background:#e5effb;
+    color:#145da0;
+}
+
+
+/* =========================================================
+   ACTIVITIES
+========================================================= */
+
+.activity-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.activity-card{
+    background:white;
+    padding:25px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    transition:.25s;
+}
+
+.activity-card:hover{
+    transform:translateY(-5px);
+}
+
+.activity-icon{
+    width:55px;
+    height:55px;
+    background:var(--light-green);
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.activity-card h3{
+    color:var(--dark);
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.activity-card p{
+    color:var(--gray);
+    font-size:13px;
+}
+
+
+/* =========================================================
+   NOTICE + EVENTS
+========================================================= */
+
+.news-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:25px;
+}
+
+.notice-box,
+.event-box{
+    background:white;
+    padding:25px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+
+.notice-item{
+    display:flex;
+    gap:15px;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.notice-date{
+    min-width:58px;
+    height:58px;
+    border-radius:7px;
+    background:var(--light-green);
+    color:var(--green);
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    font-weight:700;
+}
+
+.notice-date strong{
+    font-size:19px;
+}
+
+.notice-item h4{
+    font-size:14px;
+    color:#333;
+}
+
+.notice-item p{
+    color:#888;
+    font-size:12px;
+}
+
+.event{
+    padding:15px;
+    border-left:4px solid var(--green);
+    background:#f8faf9;
+    margin-bottom:12px;
+}
+
+.event h4{
+    font-size:14px;
+}
+
+.event p{
+    color:#777;
+    font-size:12px;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.gallery-card{
+    height:210px;
+    border-radius:10px;
+    overflow:hidden;
+    position:relative;
+    background:linear-gradient(135deg,#006a4e,#142d26);
+}
+
+.gallery-card:nth-child(2){
+    background:linear-gradient(135deg,#145da0,#102f4d);
+}
+
+.gallery-card:nth-child(3){
+    background:linear-gradient(135deg,#7a9e2b,#294114);
+}
+
+.gallery-card:nth-child(4){
+    background:linear-gradient(135deg,#8d6e63,#422d27);
+}
+
+.gallery-card:nth-child(5){
+    background:linear-gradient(135deg,#00838f,#003f45);
+}
+
+.gallery-card:nth-child(6){
+    background:linear-gradient(135deg,#795548,#39251f);
+}
+
+.gallery-card:nth-child(7){
+    background:linear-gradient(135deg,#455a64,#18252a);
+}
+
+.gallery-card:nth-child(8){
+    background:linear-gradient(135deg,#5e35b1,#27135a);
+}
+
+.gallery-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,.8)
+    );
+    display:flex;
+    align-items:flex-end;
+    padding:17px;
+    color:white;
+}
+
+.gallery-overlay h4{
+    font-size:14px;
+}
+
+
+/* =========================================================
+   PUBLICATIONS
+========================================================= */
+
+.publication-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.publication{
+    background:#fff;
+    padding:25px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+
+.publication .doc-icon{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.publication h3{
+    font-size:17px;
+    color:var(--dark);
+    margin-bottom:8px;
+}
+
+.publication p{
+    color:#777;
+    font-size:13px;
+}
+
+.publication a{
+    display:inline-block;
+    margin-top:15px;
+    color:var(--green);
+    font-weight:bold;
+    font-size:13px;
+}
+
+
+/* =========================================================
+   COVERAGE
+========================================================= */
+
+.coverage{
+    background:#edf7f3;
+}
+
+.coverage-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.map-placeholder{
+    min-height:420px;
+    border-radius:15px;
+    background:
+    radial-gradient(circle at 30% 35%,#c7e9db 0 5%,transparent 6%),
+    radial-gradient(circle at 55% 50%,#b6dfd0 0 6%,transparent 7%),
+    radial-gradient(circle at 70% 30%,#c7e9db 0 5%,transparent 6%),
+    linear-gradient(135deg,#dff2ea,#c2e5d8);
+
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--green);
+    text-align:center;
+}
+
+.map-label{
+    background:white;
+    padding:20px 30px;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+}
+
+.coverage-list{
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:var(--shadow);
+}
+
+.coverage-item{
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+    display:flex;
+    justify-content:space-between;
+}
+
+.coverage-item strong{
+    color:var(--green);
+}
+
+
+/* =========================================================
+   WHY B-STRONG
+========================================================= */
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.why-card{
+    background:white;
+    padding:30px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+
+.why-card h3{
+    margin:10px 0;
+    color:var(--dark);
+}
+
+.why-card p{
+    color:var(--gray);
+    font-size:14px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+    background:
+    linear-gradient(
+        120deg,
+        var(--dark-green),
+        var(--green)
+    );
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.cta h2{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.cta p{
+    opacity:.9;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    background:#062c23;
+    color:white;
+    padding:55px 0 20px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1.2fr;
+    gap:35px;
+}
+
+.footer h3{
+    margin-bottom:15px;
+}
+
+.footer p,
+.footer li{
+    color:#cbd5d1;
+    font-size:13px;
+}
+
+.footer ul{
+    list-style:none;
+}
+
+.footer li{
+    margin:8px 0;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.15);
+    margin-top:35px;
+    padding-top:20px;
+    text-align:center;
+    color:#aabbb5;
+    font-size:12px;
+}
+
+
+/* =========================================================
+   LOGIN MODAL
+========================================================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.login-box{
+    width:100%;
+    max-width:430px;
+    background:white;
+    border-radius:15px;
+    padding:35px;
+    position:relative;
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+.close-modal{
+    position:absolute;
+    right:18px;
+    top:12px;
+    font-size:27px;
+    color:#777;
+    cursor:pointer;
+}
+
+.login-box h2{
+    color:var(--green);
+    margin-bottom:5px;
+}
+
+.login-box p{
+    color:#777;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.login-input{
+    margin-bottom:15px;
+}
+
+.login-input label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.login-input input{
+    width:100%;
+    height:45px;
+    border:1px solid #ddd;
+    border-radius:6px;
+    padding:0 12px;
+}
+
+.login-submit{
+    width:100%;
+    height:45px;
+    border:0;
+    border-radius:6px;
+    background:var(--green);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.back-top{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:45px;
+    height:45px;
+    border:0;
+    border-radius:50%;
+    background:var(--green);
+    color:#fff;
+    cursor:pointer;
+    display:none;
+    z-index:900;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .stats-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .activity-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .gallery-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:800px){
+
+    .topbar-inner{
+        flex-direction:column;
+        padding:7px 0;
+        gap:5px;
+    }
+
+    .header-inner{
+        min-height:75px;
+    }
+
+    .partner-logo{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-inner{
+        display:block;
+    }
+
+    .nav-menu{
+        display:none;
+        flex-direction:column;
+        width:100%;
+    }
+
+    .nav-menu.show{
+        display:flex;
+    }
+
+    .nav-menu li a{
+        border-top:1px solid rgba(255,255,255,.1);
+        text-align:center;
+    }
+
+    .hero{
+        min-height:450px;
+    }
+
+    .hero h2{
+        font-size:38px;
+    }
+
+    .location-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .dashboard-grid,
+    .about-grid,
+    .news-grid,
+    .coverage-grid{
+        grid-template-columns:1fr;
+    }
+
+    .why-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .publication-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:560px){
+
+    .container{
+        width:94%;
+    }
+
+    .section{
+        padding:50px 0;
+    }
+
+    .brand h1{
+        font-size:21px;
+    }
+
+    .brand p{
+        font-size:10px;
+    }
+
+    .logo-box{
+        width:52px;
+        height:52px;
+        font-size:13px;
+    }
+
+    .hero h2{
+        font-size:31px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .location-grid{
+        grid-template-columns:1fr;
+    }
+
+    .activity-grid,
+    .gallery-grid,
+    .publication-grid,
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .table-toolbar input{
+        width:100%;
+        min-width:0;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     TOP BAR
+========================================================= -->
+
+<div class="topbar">
+
+    <div class="container topbar-inner">
+
+        <div>
+            Government of the People's Republic of Bangladesh
+        </div>
+
+        <div class="topbar-right">
+            <span>বাংলা</span>
+            <span>Help</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <div class="container header-inner">
+
+        <a href="#home" class="brand">
+
+            <div class="logo-box">
+                LGED
+            </div>
+
+            <div>
+                <h1>B-STRONG</h1>
+
+                <p>
+                    Bangladesh Sustainable Recovery, Emergency
+                    Preparedness and Response Project
+                </p>
+
+                <p>
+                    <b>Local Government Engineering Department</b>
+                </p>
+            </div>
+
+        </a>
+
+
+        <div class="partner-logo">
+
+            <div class="wb">
+                WORLD<br>BANK
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav class="nav">
+
+    <div class="container nav-inner">
+
+        <button class="menu-toggle"
+                onclick="toggleMenu()">
+            ☰
+        </button>
+
+
+        <ul class="nav-menu" id="navMenu">
+
+            <li>
+                <a href="#home" class="active">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="#monitoring">
+                    Field Monitoring
+                </a>
+            </li>
+
+            <li>
+                <a href="#dashboard">
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#packages">
+                    Packages
+                </a>
+            </li>
+
+            <li>
+                <a href="#activities">
+                    Activities
+                </a>
+            </li>
+
+            <li>
+                <a href="#notices">
+                    Notice
+                </a>
+            </li>
+
+            <li>
+                <a href="#publications">
+                    Reports
+                </a>
+            </li>
+
+            <li>
+                <a href="#gallery">
+                    Gallery
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="login-btn"
+                   onclick="openLogin(event)">
+                    MIS Login
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <span class="hero-label">
+                LGED • World Bank Supported Project
+            </span>
+
+            <h2>
+                Building a More
+                <span>Resilient Bangladesh</span>
+            </h2>
+
+            <p>
+                Bangladesh Sustainable Recovery, Emergency
+                Preparedness and Response Project (B-STRONG)
+                — strengthening resilient infrastructure,
+                emergency preparedness and digital field
+                monitoring through LGED.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#monitoring"
+                   class="btn btn-primary">
+                    Field Monitoring
+                </a>
+
+                <a href="#dashboard"
+                   class="btn btn-outline">
+                    Project Dashboard
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STATISTICS
+========================================================= -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">📦</div>
+
+                <h3 id="totalPackages">
+                    1909
+                </h3>
+
+                <p>
+                    Total Packages / Schemes
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">📍</div>
+
+                <h3>
+                    40
+                </h3>
+
+                <p>
+                    Project Upazilas
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">🏢</div>
+
+                <h3>
+                    06
+                </h3>
+
+                <p>
+                    Project Districts
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">🚧</div>
+
+                <h3>
+                    1647
+                </h3>
+
+                <p>
+                    Project Locations
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">📊</div>
+
+                <h3>
+                    68%
+                </h3>
+
+                <p>
+                    Overall Progress
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section class="section" id="about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-visual">
+
+                <div class="big-text">
+
+                    <strong>
+                        B-STRONG
+                    </strong>
+
+                    <span>
+                        LGED Project Management
+                        Information System
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <div class="section-title"
+                     style="text-align:left;margin-bottom:15px">
+
+                    <span class="small-title">
+                        About the Project
+                    </span>
+
+                    <h2>
+                        Sustainable Recovery &
+                        Resilient Infrastructure
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    The Bangladesh Sustainable Recovery,
+                    Emergency Preparedness and Response
+                    Project (B-STRONG) is designed to
+                    strengthen sustainable infrastructure,
+                    emergency preparedness and resilient
+                    development.
+                </p>
+
+                <p>
+                    Under LGED, digital project monitoring,
+                    package-level information, field
+                    inspection, implementation progress and
+                    reporting can be managed through an
+                    integrated Project Management Information
+                    System.
+                </p>
+
+
+                <ul class="check-list">
+
+                    <li>
+                        Digital Field Inspection & Monitoring
+                    </li>
+
+                    <li>
+                        Package & Scheme Tracking
+                    </li>
+
+                    <li>
+                        Progress Monitoring
+                    </li>
+
+                    <li>
+                        Photo & Document Management
+                    </li>
+
+                    <li>
+                        Management Dashboard & Reports
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FIELD MONITORING
+========================================================= -->
+
+<section class="section monitor-section"
+         id="monitoring">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="small-title">
+                Digital Monitoring
+            </span>
+
+            <h2>
+                Field Work Inspection & Monitoring
+            </h2>
+
+            <p>
+                Select Division, Region, District and
+                Upazila to view project activities and
+                package information.
+            </p>
+
+        </div>
+
+
+        <div class="monitor-box">
+
+            <div class="location-grid">
+
+
+                <!-- DIVISION -->
+
+                <div class="form-control">
+
+                    <label>
+                        Division
+                    </label>
+
+                    <select id="division"
+                            onchange="loadRegions()">
+
+                        <option value="">
+                            Select Division
+                        </option>
+
+                        <option value="Chattogram">
+                            Chattogram
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- REGION -->
+
+                <div class="form-control">
+
+                    <label>
+                        Region
+                    </label>
+
+                    <select id="region"
+                            onchange="loadDistricts()">
+
+                        <option value="">
+                            Select Region
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DISTRICT -->
+
+                <div class="form-control">
+
+                    <label>
+                        District
+                    </label>
+
+                    <select id="district"
+                            onchange="loadUpazilas()">
+
+                        <option value="">
+                            Select District
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- UPAZILA -->
+
+                <div class="form-control">
+
+                    <label>
+                        Upazila
+                    </label>
+
+                    <select id="upazila">
+
+                        <option value="">
+                            Select Upazila
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="monitor-actions">
+
+                <button class="btn btn-green"
+                        onclick="searchProject()">
+
+                    🔎 Search Project
+
+                </button>
+
+
+                <button class="btn btn-gray"
+                        onclick="resetSearch()">
+
+                    Reset
+
+                </button>
+
+            </div>
+
+
+            <div class="search-result"
+                 id="searchResult">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DASHBOARD
+========================================================= -->
+
+<section class="section"
+         id="dashboard">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="small-title">
+                Management Information System
+            </span>
+
+            <h2>
+                Project Progress Dashboard
+            </h2>
+
+            <p>
+                Project implementation status at a glance.
+            </p>
+
+        </div>
+
+
+        <div class="dashboard-grid">
+
+
+            <!-- PROGRESS -->
+
+            <div class="dashboard-card">
+
+                <h3>
+                    Component-wise Progress
+                </h3>
+
+
+                <div class="progress-row">
+
+                    <div class="progress-head">
+                        <span>
+                            Road / Infrastructure
+                        </span>
+
+                        <strong>
+                            72%
+                        </strong>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar"
+                             style="width:72%">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="progress-row">
+
+                    <div class="progress-head">
+                        <span>
+                            Bridge / Culvert
+                        </span>
+
+                        <strong>
+                            61%
+                        </strong>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar"
+                             style="width:61%">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="progress-row">
+
+                    <div class="progress-head">
+                        <span>
+                            Emergency Response
+                        </span>
+
+                        <strong>
+                            55%
+                        </strong>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar"
+                             style="width:55%">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="progress-row">
+
+                    <div class="progress-head">
+                        <span>
+                            Institutional Development
+                        </span>
+
+                        <strong>
+                            78%
+                        </strong>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar"
+                             style="width:78%">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BAR CHART -->
+
+            <div class="dashboard-card">
+
+                <h3>
+                    District-wise Activities
+                </h3>
+
+
+                <div class="bar-chart">
+
+                    <div class="bar"
+                         style="height:75%">
+                        <span>
+                            CTG
+                        </span>
+                    </div>
+
+                    <div class="bar"
+                         style="height:58%">
+                        <span>
+                            COM
+                        </span>
+                    </div>
+
+                    <div class="bar"
+                         style="height:67%">
+                        <span>
+                            NOA
+                        </span>
+                    </div>
+
+                    <div class="bar"
+                         style="height:45%">
+                        <span>
+                            FEN
+                        </span>
+                    </div>
+
+                    <div class="bar"
+                         style="height:38%">
+                        <span>
+                            LAK
+                        </span>
+                    </div>
+
+                    <div class="bar"
+                         style="height:52%">
+                        <span>
+                            BRA
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PACKAGES
+========================================================= -->
+
+<section class="section"
+         id="packages">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="small-title">
+                Package Information
+            </span>
+
+            <h2>
+                Active Package Monitoring
+            </h2>
+
+            <p>
+                Package-wise implementation information.
+            </p>
+
+        </div>
+
+
+        <div class="table-container">
+
+
+            <div class="table-toolbar">
+
+                <input
+                    type="text"
+                    id="packageSearch"
+                    placeholder="Search Package ID, District, Upazila..."
+                    onkeyup="filterPackages()"
+                >
+
+                <button class="btn btn-green"
+                        onclick="downloadCSV()">
+
+                    ⬇️ Export CSV
+
+                </button>
+
+            </div>
+
+
+            <div class="table-scroll">
+
+                <table class="package-table"
+                       id="packageTable">
+
+                    <thead>
+
+                    <tr>
+
+                        <th>
+                            Package ID
+                        </th>
+
+                        <th>
+                            District
+                        </th>
+
+                        <th>
+                            Upazila
+                        </th>
+
+                        <th>
+                            Activity
+                        </th>
+
+                        <th>
+                            Progress
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                    <tr>
+
+                        <td>
+                            BSTRONG/CTG/RNG/W1-001
+                        </td>
+
+                        <td>
+                            Chattogram
+                        </td>
+
+                        <td>
+                            Rangunia
+                        </td>
+
+                        <td>
+                            Road Improvement
+                        </td>
+
+                        <td>
+                            72%
+                        </td>
+
+                        <td>
+                            <span class="badge badge-ongoing">
+                                Ongoing
+                            </span>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            BSTRONG/NOA/SAD/W1-002
+                        </td>
+
+                        <td>
+                            Noakhali
+                        </td>
+
+                        <td>
+                            Noakhali Sadar
+                        </td>
+
+                        <td>
+                            Road Rehabilitation
+                        </td>
+
+                        <td>
+                            65%
+                        </td>
+
+                        <td>
+                            <span class="badge badge-ongoing">
+                                Ongoing
+                            </span>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            BSTRONG/FEN/FUL/W1-003
+                        </td>
+
+                        <td>
+                            Feni
+                        </td>
+
+                        <td>
+                            Fulgazi
+                        </td>
+
+                        <td>
+                            Infrastructure Work
+                        </td>
+
+                        <td>
+                            100%
+                        </td>
+
+                        <td>
+                            <span class="badge badge-completed">
+                                Completed
+                            </span>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            BSTRONG/FEN/SON/W1-004
+                        </td>
+
+                        <td>
+                            Feni
+                        </td>
+
+                        <td>
+                            Sonagazi
+                        </td>
+
+                        <td>
+                            Road & Drainage
+                        </td>
+
+                        <td>
+                            45%
+                        </td>
+
+                        <td>
+                            <span class="badge badge-ongoing">
+                                Ongoing
+                            </span>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            BSTRONG/LAK/RAM/W1-005
+                        </td>
+
+                        <td>
+                            Lakshmipur
+                        </td>
+
+                        <td>
+                            Ramgati
+                        </td>
+
+                        <td>
+                            Road Improvement
+                        </td>
+
+                        <td>
+                            35%
+                        </td>
+
+                        <td>
+                            <span class="badge badge-ongoing">
+                                Ongoing
+                            </span>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            BSTRONG/BRA/SAD/W1-006
+                        </td>
+
+                        <td>
+                            Brahmanbaria
+                        </td>
+
+                        <td>
+                            Sadar
+                        </td>
+
+                        <td>
+                            Bridge Construction
+                        </td>
+
+                        <td>
+                            20%
+                        </td>
+
+                        <td>
+                            <span class="badge badge-planned">
+                                Planned
+                            </span>
+                        </td>
+
+                    </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ACTIVITIES
+========================================================= -->
+
+<section class="section"
+         id="activities">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="small-title">
+                Project Activities
+            </span>
+
+            <h2>
+                Key B-STRONG Activities
+            </h2>
+
+        </div>
+
+
+        <div class="activity-grid">
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🛣️
+                </div>
+
+                <h3>
+                    Road Development
+                </h3>
+
+                <p>
+                    Construction, rehabilitation and
+                    improvement of resilient rural roads.
+                </p>
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🌉
+                </div>
+
+                <h3>
+                    Bridge & Culvert
+                </h3>
+
+                <p>
+                    Construction and rehabilitation of
+                    bridges and drainage structures.
+                </p>
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🌧️
+                </div>
+
+                <h3>
+                    Emergency Response
+                </h3>
+
+                <p>
+                    Emergency preparedness and rapid
+                    infrastructure response.
+                </p>
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Digital Monitoring
+                </h3>
+
+                <p>
+                    Digital field inspection, photo
+                    reporting and package tracking.
+                </p>
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🗺️
+                </div>
+
+                <h3>
+                    GIS Mapping
+                </h3>
+
+                <p>
+                    Geographic visualization of project
+                    locations and field activities.
+                </p>
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    📷
+                </div>
+
+                <h3>
+                    Field Photography
+                </h3>
+
+                <p>
+                    Location-based project photographs
+                    and inspection records.
+                </p>
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    📊
+                </div>
+
+                <h3>
+                    MIS Reporting
+                </h3>
+
+                <p>
+                    Automated progress reporting and
+                    management dashboards.
+                </p>
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Safety & Compliance
+                </h3>
+
+                <p>
+                    Monitoring of worker safety,
+                    environmental and social compliance.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     NOTICE
+========================================================= -->
+
+<section class="section"
+         id="notices">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="small-title">
+                Latest Information
+            </span>
+
+            <h2>
+                Notice & News
+            </h2>
+
+        </div>
+
+
+        <div class="news-grid">
+
+
+            <div class="notice-box">
+
+                <h3>
+                    📢 Notice Board
+                </h3>
+
+
+                <div class="notice-item">
+
+                    <div class="notice-date">
+                        <strong>07</strong>
+                        OCT
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            B-STRONG field implementation
+                            monitoring update
+                        </h4>
+
+                        <p>
+                            LGED • October 2026
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="notice-item">
+
+                    <div class="notice-date">
+                        <strong>05</strong>
+                        OCT
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Package-wise progress data
+                            submission
+                        </h4>
+
+                        <p>
+                            Project Management Unit
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="notice-item">
+
+                    <div class="notice-date">
+                        <strong>01</strong>
+                        OCT
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Digital field monitoring system
+                            updated
+                        </h4>
+
+                        <p>
+                            ICT / MIS Unit
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="notice-item">
+
+                    <div class="notice-date">
+                        <strong>25</strong>
+                        SEP
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Project implementation review
+                            meeting
+                        </h4>
+
+                        <p>
+                            LGED Headquarters
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="event-box">
+
+                <h3>
+                    📅 Upcoming Events
+                </h3>
+
+
+                <div class="event">
+
+                    <h4>
+                        Project Progress Review Meeting
+                    </h4>
+
+                    <p>
+                        LGED Headquarters • October 2026
+                    </p>
+
+                </div>
+
+
+                <div class="event">
+
+                    <h4>
+                        Field Monitoring & Inspection
+                    </h4>
+
+                    <p>
+                        Project Districts • October 2026
+                    </p>
+
+                </div>
+
+
+                <div class="event">
+
+                    <h4>
+                        B-STRONG MIS Review
+                    </h4>
+
+                    <p>
+                        PMU / ICT / MIS • November 2026
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PUBLICATIONS
+========================================================= -->
+
+<section class="section"
+         id="publications">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="small-title">
+                Documents & Resources
+            </span>
+
+            <h2>
+                Reports & Publications
+            </h2>
+
+        </div>
+
+
+        <div class="publication-grid">
+
+
+            <div class="publication">
+
+                <div class="doc-icon">
+                    📄
+                </div>
+
+                <h3>
+                    B-STRONG Project Progress Report
+                </h3>
+
+                <p>
+                    Project implementation progress,
+                    package status and field activities.
+                </p>
+
+                <a href="#">
+                    View / Download →
+                </a>
+
+            </div>
+
+
+            <div class="publication">
+
+                <div class="doc-icon">
+                    📘
+                </div>
+
+                <h3>
+                    Field Monitoring Guideline
+                </h3>
+
+                <p>
+                    Guideline for field inspection,
+                    reporting and digital monitoring.
+                </p>
+
+                <a href="#">
+                    View / Download →
+                </a>
+
+            </div>
+
+
+            <div class="publication">
+
+                <div class="doc-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Quarterly Progress Report
+                </h3>
+
+                <p>
+                    Quarterly project implementation
+                    and performance report.
+                </p>
+
+                <a href="#">
+                    View / Download →
+                </a>
+
+            </div>
+
+
+            <div class="publication">
+
+                <div class="doc-icon">
+                    📑
+                </div>
+
+                <h3>
+                    Procurement Documents
+                </h3>
+
+                <p>
+                    Procurement-related documents,
+                    package and contract information.
+                </p>
+
+                <a href="#">
+                    View / Download →
+                </a>
+
+            </div>
+
+
+            <div class="publication">
+
+                <div class="doc-icon">
+                    🗺️
+                </div>
+
+                <h3>
+                    Project Location Map
+                </h3>
+
+                <p>
+                    Geographic information of project
+                    locations and packages.
+                </p>
+
+                <a href="#">
+                    Open Map →
+                </a>
+
+            </div>
+
+
+            <div class="publication">
+
+                <div class="doc-icon">
+                    📷
+                </div>
+
+                <h3>
+                    Field Photo Report
+                </h3>
+
+                <p>
+                    Location-based photographs and
+                    inspection documentation.
+                </p>
+
+                <a href="#">
+                    View Gallery →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     GALLERY
+========================================================= -->
+
+<section class="section"
+         id="gallery">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="small-title">
+                Project Activities
+            </span>
+
+            <h2>
+                Photo Gallery
+            </h2>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+
+            <div class="gallery-card">
+
+                <div class="gallery-overlay">
+
+                    <h4>
+                        Field Inspection
+                    </h4>
+
+                </div>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="gallery-overlay">
+
+                    <h4>
+                        Road Development
+                    </h4>
+
+                </div>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="gallery-overlay">
+
+                    <h4>
+                        Bridge Construction
+                    </h4>
+
+                </div>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="gallery-overlay">
+
+                    <h4>
+                        Project Monitoring
+                    </h4>
+
+                </div>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="gallery-overlay">
+
+                    <h4>
+                        Field Activity
+                    </h4>
+
+                </div>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="gallery-overlay">
+
+                    <h4>
+                        Infrastructure Work
+                    </h4>
+
+                </div>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="gallery-overlay">
+
+                    <h4>
+                        Safety Monitoring
+                    </h4>
+
+                </div>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="gallery-overlay">
+
+                    <h4>
+                        B-STRONG Meeting
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     COVERAGE
+========================================================= -->
+
+<section class="section coverage"
+         id="coverage">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="small-title">
+                Geographic Coverage
+            </span>
+
+            <h2>
+                Project Coverage Area
+            </h2>
+
+            <p>
+                B-STRONG project locations under LGED.
+            </p>
+
+        </div>
+
+
+        <div class="coverage-grid">
+
+
+            <div class="map-placeholder">
+
+                <div class="map-label">
+
+                    <div style="font-size:50px">
+                        🗺️
+                    </div>
+
+                    <h3>
+                        Interactive Project Map
+                    </h3>
+
+                    <p>
+                        Leaflet / GIS Map can be
+                        integrated here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="coverage-list">
+
+                <h3>
+                    Project Districts
+                </h3>
+
+
+                <div class="coverage-item">
+
+                    <span>
+                        Chattogram
+                    </span>
+
+                    <strong>
+                        15
+                    </strong>
+
+                </div>
+
+
+                <div class="coverage-item">
+
+                    <span>
+                        Cumilla
+                    </span>
+
+                    <strong>
+                        06*
+                    </strong>
+
+                </div>
+
+
+                <div class="coverage-item">
+
+                    <span>
+                        Noakhali
+                    </span>
+
+                    <strong>
+                        07*
+                    </strong>
+
+                </div>
+
+
+                <div class="coverage-item">
+
+                    <span>
+                        Feni
+                    </span>
+
+                    <strong>
+                        Project Area
+                    </strong>
+
+                </div>
+
+
+                <div class="coverage-item">
+
+                    <span>
+                        Lakshmipur
+                    </span>
+
+                    <strong>
+                        04*
+                    </strong>
+
+                </div>
+
+
+                <div class="coverage-item">
+
+                    <span>
+                        Brahmanbaria
+                    </span>
+
+                    <strong>
+                        Project Area
+                    </strong>
+
+                </div>
+
+
+                <p style="
+                    margin-top:15px;
+                    color:#888;
+                    font-size:12px;
+                ">
+                    * Project-covered Upazila figures
+                    should be replaced with the approved
+                    B-STRONG coverage list.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WHY B-STRONG
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="small-title">
+                Digital Transformation
+            </span>
+
+            <h2>
+                Why Digital Monitoring?
+            </h2>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-card">
+
+                <div style="font-size:35px">
+                    📱
+                </div>
+
+                <h3>
+                    Real-time Field Data
+                </h3>
+
+                <p>
+                    Field officers can submit inspection
+                    information, photographs and progress
+                    data digitally.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div style="font-size:35px">
+                    📊
+                </div>
+
+                <h3>
+                    Management Dashboard
+                </h3>
+
+                <p>
+                    Management can monitor project
+                    implementation from LGED Headquarters.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div style="font-size:35px">
+                    🗂️
+                </div>
+
+                <h3>
+                    Centralized Information
+                </h3>
+
+                <p>
+                    Package, scheme, location, progress,
+                    photographs and reports can be maintained
+                    in one platform.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            B-STRONG Project Management Information System
+        </h2>
+
+        <p>
+            Monitor • Manage • Analyze • Report
+        </p>
+
+        <div style="margin-top:25px">
+
+            <button class="btn btn-primary"
+                    onclick="openLogin(event)">
+
+                Login to MIS
+
+            </button>
+
+            <a href="#contact"
+               class="btn btn-outline"
+               style="margin-left:8px">
+
+                Contact Project Office
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="section"
+         id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="small-title">
+                Get in Touch
+            </span>
+
+            <h2>
+                Contact Information
+            </h2>
+
+        </div>
+
+
+        <div class="about-grid">
+
+
+            <div class="monitor-box">
+
+                <h3 style="color:var(--green)">
+                    B-STRONG Project
+                </h3>
+
+                <p style="margin-top:15px">
+                    <b>Organization:</b><br>
+                    Local Government Engineering Department
+                    (LGED)
+                </p>
+
+                <p style="margin-top:10px">
+                    <b>Office:</b><br>
+                    LGED Headquarters, Dhaka, Bangladesh
+                </p>
+
+                <p style="margin-top:10px">
+                    <b>Project:</b><br>
+                    Bangladesh Sustainable Recovery,
+                    Emergency Preparedness and Response
+                    Project (B-STRONG)
+                </p>
+
+            </div>
+
+
+            <div class="monitor-box">
+
+                <h3 style="color:var(--green)">
+                    Digital Services
+                </h3>
+
+                <ul class="check-list">
+
+                    <li>
+                        Project Dashboard
+                    </li>
+
+                    <li>
+                        Field Inspection System
+                    </li>
+
+                    <li>
+                        Package Monitoring
+                    </li>
+
+                    <li>
+                        GIS / Project Location
+                    </li>
+
+                    <li>
+                        MIS Reports
+                    </li>
+
+                    <li>
+                        Photo Documentation
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+    <footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <h3>
+                    B-STRONG
+                </h3>
+
+                <p>
+                    Bangladesh Sustainable Recovery,
+                    Emergency Preparedness and Response
+                    Project.
+                </p>
+
+                <p style="margin-top:10px">
+
+                    Local Government Engineering
+                    Department (LGED)
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#home">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#about">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#dashboard">
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#monitoring">
+                            Monitoring
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Resources
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#packages">
+                            Packages
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#notices">
+                            Notices
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#publications">
+                            Reports
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#gallery">
+                            Gallery
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Important Links
+                </h3>
+
+                <ul>
+
+                    <li>
+                        LGED
+                    </li>
+
+                    <li>
+                        World Bank
+                    </li>
+
+                    <li>
+                        BPPA / e-GP
+                    </li>
+
+                    <li>
+                        Project MIS
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 B-STRONG | Local Government Engineering
+            Department (LGED)
+
+            <br>
+
+            Project Management Information System
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     LOGIN MODAL
+========================================================= -->
+
+<div class="modal"
+     id="loginModal">
+
+    <div class="login-box">
+
+        <span class="close-modal"
+              onclick="closeLogin()">
+            ×
+        </span>
+
+        <h2>
+            MIS Login
+        </h2>
+
+        <p>
+            Authorized users only
+        </p>
+
+
+        <div class="login-input">
+
+            <label>
+                Username / Email
+            </label>
+
+            <input type="text"
+                   id="username"
+                   placeholder="Enter username">
+
+        </div>
+
+
+        <div class="login-input">
+
+            <label>
+                Password
+            </label>
+
+            <input type="password"
+                   id="password"
+                   placeholder="Enter password">
+
+        </div>
+
+
+        <button class="login-submit"
+                onclick="loginUser()">
+
+            Login
+
+        </button>
+
+
+        <p style="
+            text-align:center;
+            margin-top:15px;
+            margin-bottom:0;
+        ">
+            This demo login is front-end only.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     BACK TO TOP
+========================================================= -->
+
+<button class="back-top"
+        id="backTop"
+        onclick="window.scrollTo({
+            top:0,
+            behavior:'smooth'
+        })">
+
+    ↑
+
+</button>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   PROJECT LOCATION DATA
+
+   IMPORTANT:
+   Replace/expand this list with the officially approved
+   B-STRONG project coverage list.
+========================================================= */
+
+const projectData = {
+
+    "Chattogram": {
+
+        "Region-1": {
+
+            "Chattogram": [
+                "Anwara",
+                "Boalkhali",
+                "Chandanaish",
+                "Fatikchhari",
+                "Hathazari",
+                "Karanafuli",
+                "Lohagara",
+                "Mirsharai",
+                "Patiya",
+                "Rangunia",
+                "Raozan",
+                "Sandwip",
+                "Satkania",
+                "Sitakunda",
+                "Panchlaish"
+            ]
+
+        },
+
+        "Region-2": {
+
+            "Cumilla": [
+                "Cumilla Sadar",
+                "Daudkandi",
+                "Debidwar",
+                "Chandina",
+                "Barura",
+                "Burichang"
+            ]
+
+        },
+
+        "Region-3": {
+
+            "Noakhali": [
+                "Noakhali Sadar",
+                "Begumganj",
+                "Chatkhil",
+                "Companiganj",
+                "Hatiya",
+                "Kabirhat",
+                "Senbagh"
+            ],
+
+            "Feni": [
+                "Feni Sadar",
+                "Fulgazi",
+                "Sonagazi",
+                "Chhagalnaiya"
+            ],
+
+            "Lakshmipur": [
+                "Lakshmipur Sadar",
+                "Ramganj",
+                "Raipur",
+                "Ramgati"
+            ],
+
+            "Brahmanbaria": [
+                "Brahmanbaria Sadar",
+                "Akhaura",
+                "Ashuganj",
+                "Bancharampur"
+            ]
+
+        }
+
+    }
+
+};
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMenu(){
+
+    const menu =
+        document.getElementById("navMenu");
+
+    menu.classList.toggle("show");
+
+}
+
+
+/* =========================================================
+   LOAD REGION
+========================================================= */
+
+function loadRegions(){
+
+    const division =
+        document.getElementById("division").value;
+
+    const region =
+        document.getElementById("region");
+
+    const district =
+        document.getElementById("district");
+
+    const upazila =
+        document.getElementById("upazila");
+
+
+    region.innerHTML =
+        '<option value="">Select Region</option>';
+
+    district.innerHTML =
+        '<option value="">Select District</option>';
+
+    upazila.innerHTML =
+        '<option value="">Select Upazila</option>';
+
+
+    if(!division){
+        return;
+    }
+
+
+    const regions =
+        Object.keys(projectData[division] || {});
+
+
+    regions.forEach(function(item){
+
+        region.innerHTML +=
+        `<option value="${item}">
+            ${item}
+        </option>`;
+
+    });
+
+}
+
+
+/* =========================================================
+   LOAD DISTRICT
+========================================================= */
+
+function loadDistricts(){
+
+    const division =
+        document.getElementById("division").value;
+
+    const regionName =
+        document.getElementById("region").value;
+
+    const district =
+        document.getElementById("district");
+
+    const upazila =
+        document.getElementById("upazila");
+
+
+    district.innerHTML =
+        '<option value="">Select District</option>';
+
+    upazila.innerHTML =
+        '<option value="">Select Upazila</option>';
+
+
+    if(
+        !division ||
+        !regionName
+    ){
+        return;
+    }
+
+
+    const districts =
+        Object.keys(
+            projectData[division][regionName]
+        );
+
+
+    districts.forEach(function(item){
+
+        district.innerHTML +=
+        `<option value="${item}">
+            ${item}
+        </option>`;
+
+    });
+
+}
+
+
+/* =========================================================
+   LOAD UPAZILA
+========================================================= */
+
+function loadUpazilas(){
+
+    const division =
+        document.getElementById("division").value;
+
+    const regionName =
+        document.getElementById("region").value;
+
+    const districtName =
+        document.getElementById("district").value;
+
+    const upazila =
+        document.getElementById("upazila");
+
+
+    upazila.innerHTML =
+        '<option value="">Select Upazila</option>';
+
+
+    if(
+        !division ||
+        !regionName ||
+        !districtName
+    ){
+        return;
+    }
+
+
+    const list =
+        projectData
+        [division]
+        [regionName]
+        [districtName];
+
+
+    list.forEach(function(item){
+
+        upazila.innerHTML +=
+        `<option value="${item}">
+            ${item}
+        </option>`;
+
+    });
+
+}
+
+
+/* =========================================================
+   SEARCH PROJECT
+========================================================= */
+
+function searchProject(){
+
+    const division =
+        document.getElementById("division").value;
+
+    const region =
+        document.getElementById("region").value;
+
+    const district =
+        document.getElementById("district").value;
+
+    const upazila =
+        document.getElementById("upazila").value;
+
+    const result =
+        document.getElementById("searchResult");
+
+
+    if(
+        !division ||
+        !region ||
+        !district ||
+        !upazila
+    ){
+
+        result.style.display = "block";
+
+        result.innerHTML = `
+            <strong style="color:#c62828">
+                ⚠️ Please select Division, Region,
+                District and Upazila.
+            </strong>
+        `;
+
+        return;
+    }
+
+
+    result.style.display = "block";
+
+
+    result.innerHTML = `
+
+        <h3 style="color:#006a4e">
+            ✓ Project Search Result
+        </h3>
+
+        <p>
+            <b>Division:</b>
+            ${division}
+        </p>
+
+        <p>
+            <b>Region:</b>
+            ${region}
+        </p>
+
+        <p>
+            <b>District:</b>
+            ${district}
+        </p>
+
+        <p>
+            <b>Upazila:</b>
+            ${upazila}
+        </p>
+
+        <hr style="
+            margin:15px 0;
+            border:0;
+            border-top:1px solid #ddd;
+        ">
+
+        <p>
+            <b>Package Status:</b>
+            Data will be loaded from the
+            project database after backend
+            integration.
+        </p>
+
+    `;
+
+}
+
+
+/* =========================================================
+   RESET SEARCH
+========================================================= */
+
+function resetSearch(){
+
+    document.getElementById("division").value = "";
+
+    document.getElementById("region").innerHTML =
+        '<option value="">Select Region</option>';
+
+    document.getElementById("district").innerHTML =
+        '<option value="">Select District</option>';
+
+    document.getElementById("upazila").innerHTML =
+        '<option value="">Select Upazila</option>';
+
+    document.getElementById("searchResult").style.display =
+        "none";
+
+}
+
+
+/* =========================================================
+   PACKAGE SEARCH
+========================================================= */
+
+function filterPackages(){
+
+    const input =
+        document.getElementById("packageSearch")
+        .value
+        .toLowerCase();
+
+    const rows =
+        document.querySelectorAll(
+            "#packageTable tbody tr"
+        );
+
+
+    rows.forEach(function(row){
+
+        const text =
+            row.innerText.toLowerCase();
+
+        row.style.display =
+            text.includes(input)
+            ? ""
+            : "none";
+
+    });
+
+}
+
+
+/* =========================================================
+   CSV EXPORT
+========================================================= */
+
+function downloadCSV(){
+
+    const table =
+        document.getElementById("packageTable");
+
+    let csv = [];
+
+
+    const rows =
+        table.querySelectorAll("tr");
+
+
+    rows.forEach(function(row){
+
+        const cols =
+            row.querySelectorAll("th, td");
+
+        const data = [];
+
+
+        cols.forEach(function(col){
+
+            let text =
+                col.innerText
+                .replace(/,/g," ")
+                .replace(/\n/g," ")
+                .trim();
+
+            data.push(
+                '"' + text + '"'
+            );
+
+        });
+
+
+        csv.push(
+            data.join(",")
+        );
+
+    });
+
+
+    const blob =
+        new Blob(
+            [csv.join("\n")],
+            {
+                type:"text/csv;charset=utf-8;"
+            }
+        );
+
+
+    const link =
+        document.createElement("a");
+
+    link.href =
+        URL.createObjectURL(blob);
+
+    link.download =
+        "B-STRONG-Package-Report.csv";
+
+    link.click();
+
+}
+
+
+/* =========================================================
+   LOGIN MODAL
+========================================================= */
+
+function openLogin(event){
+
+    if(event){
+        event.preventDefault();
+    }
+
+    document
+        .getElementById("loginModal")
+        .classList.add("active");
+
+}
+
+
+function closeLogin(){
+
+    document
+        .getElementById("loginModal")
+        .classList.remove("active");
+
+}
+
+
+function loginUser(){
+
+    const username =
+        document.getElementById("username").value;
+
+    const password =
+        document.getElementById("password").value;
+
+
+    if(
+        username === "" ||
+        password === ""
+    ){
+
+        alert(
+            "Please enter username and password."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "Demo Login Successful.\n\n" +
+        "Backend authentication is required " +
+        "for the production system."
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL BY OUTSIDE CLICK
+========================================================= */
+
+window.addEventListener(
+    "click",
+    function(event){
+
+        const modal =
+            document.getElementById("loginModal");
+
+        if(event.target === modal){
+
+            closeLogin();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        const btn =
+            document.getElementById("backTop");
+
+
+        if(window.scrollY > 400){
+
+            btn.style.display = "block";
+
+        }else{
+
+            btn.style.display = "none";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+const navLinks =
+    document.querySelectorAll(".nav-menu a");
+
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        let current = "";
+
+
+        sections.forEach(function(section){
+
+            const sectionTop =
+                section.offsetTop - 120;
+
+            if(
+                window.scrollY >= sectionTop
+            ){
+
+                current =
+                    section.getAttribute("id");
+
+            }
+
+        });
+
+
+        navLinks.forEach(function(link){
+
+            link.classList.remove("active");
+
+
+            if(
+                link.getAttribute("href") ===
+                "#" + current
+            ){
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    }
+);
+
+
+/* =========================================================
+   CLOSE MOBILE MENU AFTER CLICK
+========================================================= */
+
+document
+    .querySelectorAll(".nav-menu a")
+    .forEach(function(link){
+
+        link.addEventListener(
+            "click",
+            function(){
+
+                document
+                    .getElementById("navMenu")
+                    .classList.remove("show");
+
+            }
+        );
+
+    });
+
+</script>
+
+
+</body>
+</html>
